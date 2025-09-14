@@ -1,0 +1,154 @@
+﻿<Window x:Class="MemoryGame.RankingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tabela rezultata" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF6B73FF" Offset="0"/>
+                <GradientStop Color="#FF009FFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0" 
+                   Text="TABELA REZULTATA" 
+                   FontSize="28" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,20,0,20">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <!-- Filter Controls -->
+        <Border Grid.Row="1" 
+                Background="White" 
+                Margin="20,0,20,15" 
+                Padding="15">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
+            </Border.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Filtriranje:" 
+                           FontSize="14" 
+                           FontWeight="SemiBold" 
+                           VerticalAlignment="Center" 
+                           Margin="0,0,15,0"/>
+
+                <TextBlock Text="Težina:" 
+                           FontSize="12" 
+                           VerticalAlignment="Center" 
+                           Margin="0,0,5,0"/>
+                <ComboBox Name="DifficultyFilterComboBox" 
+                          Width="120" 
+                          Margin="0,0,15,0" 
+                          SelectionChanged="FilterChanged">
+                    <ComboBoxItem Content="Sve" Tag="All" IsSelected="True"/>
+                    <ComboBoxItem Content="Lako (4x4)" Tag="Lako (4x4)"/>
+                    <ComboBoxItem Content="Srednje (6x6)" Tag="Srednje (6x6)"/>
+                    <ComboBoxItem Content="Teško (8x8)" Tag="Teško (8x8)"/>
+                </ComboBox>
+
+                <TextBlock Text="Tema:" 
+                           FontSize="12" 
+                           VerticalAlignment="Center" 
+                           Margin="0,0,5,0"/>
+                <ComboBox Name="ThemeFilterComboBox" 
+                          Width="120" 
+                          Margin="0,0,15,0" 
+                          SelectionChanged="FilterChanged">
+                    <ComboBoxItem Content="Sve" Tag="All" IsSelected="True"/>
+                    <ComboBoxItem Content="Zastave" Tag="Zastave"/>
+                    <ComboBoxItem Content="Hrana" Tag="Hrana"/>
+                    <ComboBoxItem Content="Automobili" Tag="Automobili"/>
+                </ComboBox>
+
+                <Button Name="ClearResultsButton" 
+                        Content="Obriši sve rezultate" 
+                        Background="#FFFF5722" 
+                        Foreground="White" 
+                        Padding="10,5" 
+                        BorderThickness="0" 
+                        Click="ClearResultsButton_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Results DataGrid -->
+        <Border Grid.Row="2" 
+                Background="White" 
+                Margin="20,0,20,15">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
+            </Border.Effect>
+            <DataGrid Name="ResultsDataGrid" 
+                      AutoGenerateColumns="False" 
+                      IsReadOnly="True" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False" 
+                      CanUserReorderColumns="False" 
+                      GridLinesVisibility="Horizontal" 
+                      HeadersVisibility="Column"
+                      AlternatingRowBackground="#FFF5F5F5"
+                      RowBackground="White"
+                      Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rang" Binding="{Binding Rank}" Width="60"/>
+                    <DataGridTextColumn Header="Datum i vreme" Binding="{Binding DateTime}" Width="140"/>
+                    <DataGridTextColumn Header="Težina" Binding="{Binding Difficulty}" Width="100"/>
+                    <DataGridTextColumn Header="Tema" Binding="{Binding Theme}" Width="100"/>
+                    <DataGridTextColumn Header="Vreme (s)" Binding="{Binding Time}" Width="80"/>
+                    <DataGridTextColumn Header="Potezi" Binding="{Binding Moves}" Width="80"/>
+                    <DataGridTextColumn Header="Skor" Binding="{Binding Score}" Width="80"/>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Rank}" Value="1">
+                                <Setter Property="Background" Value="#FFFFD700"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Rank}" Value="2">
+                                <Setter Property="Background" Value="#FFC0C0C0"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Rank}" Value="3">
+                                <Setter Property="Background" Value="#FFCD7F32"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </Border>
+
+        <!-- Close Button -->
+        <Button Grid.Row="3" 
+                Name="CloseButton" 
+                Content="Zatvori" 
+                FontSize="16" 
+                FontWeight="Bold" 
+                Background="#FF4CAF50" 
+                Foreground="White" 
+                Padding="20,10" 
+                Margin="20" 
+                BorderThickness="0" 
+                HorizontalAlignment="Center" 
+                Click="CloseButton_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="4" Opacity="0.4"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>
