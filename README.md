@@ -1,57 +1,83 @@
-    Po pokretanju igre, na ekranu će biti prikazane kartice koje su u početku okrenute prema dole.
-    Svaka kartica sadrži sliku koja je skrivena sve dok je ne okrenete.
+# Memory Game
 
-   
-![Screenshot (72)](https://github.com/user-attachments/assets/30147460-0288-4960-b3c2-f5d512e71785)
+## Opis projekta
+Memory Game je interaktivna igra pamćenja koja omogućava korisnicima da testiraju svoje memorijske vještine kroz različite teme i nivoe težine.
 
+## Funkcionalnosti
+Početni prozor sa izborom teme i nivoa težine
 
-Izbor težine igre
+Teme: Hrana, Zastave država, Automobili
 
-    U gornjem dijelu ekrana nalazi se opcija "Select Difficulty".
-    Možete odabrati jednu od tri težine igre:
-        Easy (4x4): 16 kartica (4x4 mreža).
-        Medium (6x6): 36 kartica (6x6 mreža).
-        Hard (8x8): 64 kartice (8x8 mreža).
-        Ako se ne odabere ništa, defaultni nivo je easy.
-![Screenshot (73)](https://github.com/user-attachments/assets/e8a2590e-cbd1-4d0b-b3bf-764be7484761)
-![Screenshot (74)](https://github.com/user-attachments/assets/7e6ba017-8e70-4e4a-833b-3ff5855d5188)
+![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(6).png)
 
-Započinjanje igre
+Nivoi težine:
 
-    Nakon odabira težine, kartice će biti postavljene u odgovarajući raspored.
-    Igra počinje odmah, a timer za mjerenje vremena će početi odbrojavanje.
+- Lako (4×4 polja)
 
-Okretanje kartica
+- Srednje (6×6 polja)
 
-    Kliknite na karticu da biste je okrenuli. Kada je okrenete, prikazaće se slika na kartici.
-    Igrač mora zapamtiti slike na karticama koje okrene i pokušati da pronađe parove.
+- Teško (8×8 polja)
 
-Uparivanje kartica
+Glavni prozor sa:
 
-    Kada kliknete na drugu karticu, ako su slike na prve dvije kartice iste, one ostaju okrenute prema gore i ne mogu se ponovo okrenuti.
-    Ako se slike ne poklapaju, kartice će se ponovo okrenuti prema dole nakon 1 sekunde.
-    
-![Screenshot (76)](https://github.com/user-attachments/assets/d27f351b-7b28-4186-8f85-1e5c160b4f65)
+- Karticama koje se okreću klikom
 
-Praćenje vremena i poteza
+- Labelom za prikaz vremena
 
-    Timer u gornjem desnom kutu prikazuje vreme koje je proteklo od početka igre.
-    Move Counter prikazuje broj poteza koje je igrač napravio do trenutka.
-    ![Screenshot (50)](https://github.com/user-attachments/assets/66539efd-ac39-4d44-b5db-bf620f5c60bd)
+- Combobox-om za promjenu težine tokom igre
 
+- Dugmetom za pauzu
 
-Pauza i ponovni početak
+- Dugmetom za restart
 
-    Pause/Resume: Igra se može pauzirati ili nastaviti pomoću dugmeta "Pause". Klikom na ovo dugme, kartice će biti onemogućene dok igra nije nastavljena.
-    Restart: Klikom na dugme "Restart", igra će početi iznova, a stanje vremena i broja poteza će biti resetovano.
-![Screenshot (74)](https://github.com/user-attachments/assets/7464560a-137a-4154-8347-0384cd0f79f9)
-![Screenshot (75)](https://github.com/user-attachments/assets/8c149e8c-722e-4473-854b-44a096f2090e)
+- Dugmetom za prikaz rezultata
 
-Pobjednička poruka
+![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(13).png)
 
+Prozor rezultata sa:
 
-    Igra se završava kada svi parovi kartica budu upareni.
-  ![Screenshot (51)](https://github.com/user-attachments/assets/79da6bf5-24a9-4301-b6a4-55e5fc17bd02)
+- Tabelom svih rezultata
 
+- Mogućnošću filtriranja po težini i temi
 
-    Na kraju, igrač će videti poruku koja mu čestita na pobjedi, zajedno sa vremenom i brojem poteza koje je iskoristio da završi igru.
+![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(11).png)
+
+## Kako igrati?
+Pokrenite aplikaciju
+
+Odaberite željenu temu i nivo težine
+
+Kliknite na "Start" dugme
+
+Kliknite na kartice da biste ih okrenuli i pronašli parove
+
+Pokušajte pronaći sve parove u što kraćem vremenu
+
+## Kontrole
+Pauza: Privremeno zaustavlja igru
+
+Restart: Počinje igru iz početka
+
+Promjena težine: Mijenja težinu tokom igre
+
+Prikaz rezultata: Otvara prozor sa svim postignutim rezultatima
+
+## 🚀 Instalacija
+1. Klonirajte repozitorijum:
+
+```sh
+git clone https://github.com/milanaivankovich/MemoryGame_hci.git
+```
+2. Otvorite u Visual Studio
+
+3. Build solution (Ctrl + Shift + B)
+
+4. Run (F5)
+
+## 🛠️ Korištene tehnologije
+- .NET Framework/WPF
+
+- C#
+
+- XAML
+
