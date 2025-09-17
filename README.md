@@ -4,11 +4,13 @@
 Memory Game je interaktivna igra pamćenja koja omogućava korisnicima da testiraju svoje memorijske vještine kroz različite teme i nivoe težine.
 
 ## Funkcionalnosti
-Početni prozor sa izborom teme i nivoa težine
 
-Teme: Hrana, Zastave država, Automobili
+### Početni prozor sa izborom teme i nivoa težine
 
-![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(6).png)
+Teme:
+- Hrana
+- Zastave država
+- Automobili
 
 Nivoi težine:
 
@@ -18,7 +20,9 @@ Nivoi težine:
 
 - Teško (8×8 polja)
 
-Glavni prozor sa:
+![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(6).png)
+
+### Glavni prozor sa:
 
 - Karticama koje se okreću klikom
 
@@ -34,7 +38,7 @@ Glavni prozor sa:
 
 ![image alt](https://github.com/milanaivankovich/MemoryGame_hci/blob/b60c0e4d3f183f40f768028d213961442383e35d/screenshots/Screenshot%20(13).png)
 
-Prozor rezultata sa:
+### Prozor rezultata sa:
 
 - Tabelom svih rezultata
 
