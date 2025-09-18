@@ -9,7 +9,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Difficulty Selection -->
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Grid.Row="0">
             <TextBlock Text="Težina: " FontSize="16" VerticalAlignment="Center" />
             <ComboBox Name="DifficultyComboBox" FontSize="16" Padding="10,5" Margin="10,0,0,0" SelectionChanged="DifficultyComboBox_SelectionChanged">
@@ -19,7 +19,7 @@
             </ComboBox>
         </StackPanel>
 
-        <!-- Timer, Move Counter, and Action Buttons -->
+       
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Grid.Row="1">
             <TextBlock Name="TimerText" FontSize="18" Margin="0,0,15,0" VerticalAlignment="Center" />
             <TextBlock Name="MoveCounterText" FontSize="18" Margin="0,0,15,0" Text="Potezi: 0" VerticalAlignment="Center" />
@@ -28,7 +28,7 @@
             <Button Name="RankingButton" Content="Tabela" FontSize="14" Padding="8,4" Click="RankingButton_Click" />
         </StackPanel>
 
-        <!-- Card Grid -->
+       
         <Grid Name="CardGrid" Margin="10" Grid.Row="2">
             
         </Grid>

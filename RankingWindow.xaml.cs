@@ -27,7 +27,6 @@ namespace MemoryGame
             {
                 allResults.Clear();
 
-                // Kreiraj direktorij ako ne postoji
                 string directory = Path.GetDirectoryName(resultsFilePath);
                 if (!Directory.Exists(directory))
                 {
@@ -36,7 +35,7 @@ namespace MemoryGame
 
                 if (!File.Exists(resultsFilePath))
                 {
-                    // Create empty file if it doesn't exist
+                   
                     File.WriteAllText(resultsFilePath, "");
                     return;
                 }
@@ -65,7 +64,7 @@ namespace MemoryGame
                         }
                         catch (Exception ex)
                         {
-                            // Skip invalid lines silently or log if needed
+                            
                             System.Diagnostics.Debug.WriteLine($"Invalid result line: {line} - {ex.Message}");
                         }
                     }
@@ -80,17 +79,16 @@ namespace MemoryGame
 
         private int CalculateScore(int time, int moves)
         {
-            // Simple scoring system: Lower time and fewer moves = higher score
-            // Base score of 10000, subtract time and moves*10
+            
             int score = 10000 - time - (moves * 10);
-            return Math.Max(score, 0); // Don't allow negative scores
+            return Math.Max(score, 0); 
         }
 
         private void ApplyFilters()
         {
             var filteredResults = allResults.AsEnumerable();
 
-            // Apply difficulty filter
+            
             if (DifficultyFilterComboBox?.SelectedItem is ComboBoxItem difficultyItem &&
                 difficultyItem.Tag?.ToString() != "All")
             {
@@ -98,7 +96,7 @@ namespace MemoryGame
                 filteredResults = filteredResults.Where(r => r.Difficulty == selectedDifficulty);
             }
 
-            // Apply theme filter
+            
             if (ThemeFilterComboBox?.SelectedItem is ComboBoxItem themeItem &&
                 themeItem.Tag?.ToString() != "All")
             {
@@ -106,14 +104,14 @@ namespace MemoryGame
                 filteredResults = filteredResults.Where(r => r.Theme == selectedTheme);
             }
 
-            // Sort by score (descending) then by time (ascending) then by moves (ascending)
+           
             var sortedResults = filteredResults
                 .OrderByDescending(r => r.Score)
                 .ThenBy(r => r.Time)
                 .ThenBy(r => r.Moves)
                 .ToList();
 
-            // Add ranking
+           
             for (int i = 0; i < sortedResults.Count; i++)
             {
                 sortedResults[i].Rank = i + 1;
@@ -124,7 +122,7 @@ namespace MemoryGame
 
         private void FilterChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Only apply filters if the window is fully loaded
+            
             if (IsLoaded)
             {
                 ApplyFilters();
